@@ -12,6 +12,8 @@ permissions:
 jobs:
   ci:
     runs-on: ubuntu-latest
+    env:
+      HUSKY: 0
 
     steps:
       - name: Checkout code
