@@ -1,5 +1,11 @@
 <?php
 
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Validation\ValidationException;
+use Jiannei\Response\Laravel\Support\Format;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 /*
  * This file is part of the jiannei/laravel-response.
  *
@@ -29,22 +35,22 @@ return [
 
     //  You can set some attributes (eg:code/message/header/options) for the exception, and it will override the default attributes of the exception
     'exception' => [
-        \Illuminate\Validation\ValidationException::class => [
+        ValidationException::class => [
             'code' => 422,
         ],
-        \Illuminate\Auth\AuthenticationException::class => [
+        AuthenticationException::class => [
         ],
-        \Symfony\Component\HttpKernel\Exception\NotFoundHttpException::class => [
+        NotFoundHttpException::class => [
             'message' => '',
         ],
-        \Illuminate\Database\Eloquent\ModelNotFoundException::class => [
+        ModelNotFoundException::class => [
             'message' => '',
         ],
     ],
 
     // Any key that returns data exists supports custom aliases and display.
     'format' => [
-        'class' => \Jiannei\Response\Laravel\Support\Format::class,
+        'class' => Format::class,
         'config' => [
             // key => config
             'status' => ['alias' => 'status', 'show' => true],
