@@ -18,6 +18,11 @@ return [
         'key' => env('POSTMARK_API_KEY'),
     ],
 
+    'outbound' => [
+        'connect_timeout' => env('OUTBOUND_CONNECT_TIMEOUT', 5),
+        'timeout' => env('OUTBOUND_TIMEOUT', 15),
+    ],
+
     'resend' => [
         'key' => env('RESEND_API_KEY'),
     ],
